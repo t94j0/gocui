@@ -22,10 +22,9 @@ func (f EditorFunc) Edit(v *View, key Key, ch rune, mod Modifier) {
 }
 
 // DefaultEditor is the default editor.
-var DefaultEditor Editor = EditorFunc(simpleEditor)
+var DefaultEditor Editor = EditorFunc(messengerEditor)
 
-// simpleEditor is used as the default gocui editor.
-func simpleEditor(v *View, key Key, ch rune, mod Modifier) {
+func messengerEditor(v *View, key Key, ch rune, mod Modifier) {
 	switch {
 	case ch != 0 && mod == 0:
 		v.EditWrite(ch)
@@ -38,11 +37,11 @@ func simpleEditor(v *View, key Key, ch rune, mod Modifier) {
 	case key == KeyInsert:
 		v.Overwrite = !v.Overwrite
 	case key == KeyEnter:
-		v.EditNewLine()
+		return
 	case key == KeyArrowDown:
-		v.MoveCursor(0, 1, false)
+		return
 	case key == KeyArrowUp:
-		v.MoveCursor(0, -1, false)
+		return
 	case key == KeyArrowLeft:
 		v.MoveCursor(-1, 0, false)
 	case key == KeyArrowRight:

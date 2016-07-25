@@ -6,6 +6,7 @@ package gocui
 
 import (
 	"errors"
+	"time"
 
 	"github.com/nsf/termbox-go"
 )
@@ -275,6 +276,8 @@ func (g *Gui) MainLoop() error {
 			if err := ev.h(g); err != nil {
 				return err
 			}
+		default:
+			time.Sleep(10 * time.Millisecond)
 		}
 		if err := g.consumeevents(); err != nil {
 			return err
@@ -283,6 +286,7 @@ func (g *Gui) MainLoop() error {
 			return err
 		}
 	}
+	return nil
 }
 
 // consumeevents handles the remaining events in the events pool.
