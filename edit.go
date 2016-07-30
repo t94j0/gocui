@@ -24,6 +24,7 @@ func (f EditorFunc) Edit(v *View, key Key, ch rune, mod Modifier) {
 // DefaultEditor is the default editor.
 var DefaultEditor Editor = EditorFunc(messengerEditor)
 
+// simpleEditor is used as the default gocui editor.
 func messengerEditor(v *View, key Key, ch rune, mod Modifier) {
 	switch {
 	case ch != 0 && mod == 0:
