@@ -276,8 +276,10 @@ func (g *Gui) MainLoop() error {
 			if err := ev.h(g); err != nil {
 				return err
 			}
+		// <DIFF>
 		default:
 			time.Sleep(10 * time.Millisecond)
+			// </DIFF>
 		}
 		if err := g.consumeevents(); err != nil {
 			return err

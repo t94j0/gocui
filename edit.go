@@ -21,6 +21,7 @@ func (f EditorFunc) Edit(v *View, key Key, ch rune, mod Modifier) {
 	f(v, key, ch, mod)
 }
 
+// <DIFF>
 // DefaultEditor is the default editor.
 var DefaultEditor Editor = EditorFunc(messengerEditor)
 
@@ -48,6 +49,8 @@ func messengerEditor(v *View, key Key, ch rune, mod Modifier) {
 		v.MoveCursor(1, 0, false)
 	}
 }
+
+// </DIFF>
 
 // EditWrite writes a rune at the cursor position.
 func (v *View) EditWrite(ch rune) {
