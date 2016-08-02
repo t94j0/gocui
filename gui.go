@@ -288,7 +288,6 @@ func (g *Gui) MainLoop() error {
 			return err
 		}
 	}
-	return nil
 }
 
 // consumeevents handles the remaining events in the events pool.
